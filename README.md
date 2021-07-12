@@ -17,17 +17,9 @@
 > ```
 > <sub><sup>Only needed after first pulling project or new dependencies being added.</sub></sup>
 >
-> TypeScript Compiler:
-> ```
-> yarn rn-watch
-> ```
 >Start React Native Environment:
 >```
 > yarn start 
->```
-> Pulls in the translations from poeditor:
->```
-> yarn update-translations 
 >```
 ### Running iOS
 > To start iOS simulator and install app: 
