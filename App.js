@@ -55,7 +55,13 @@ export default class App extends React.Component {
           <Avatar source={require('./assets/avatar.jpg')} />
           <Subtitle>continue learning</Subtitle>
         </TitleBar>
-        <Card />
+        <Card
+          title="styled componentes"
+          caption="react native"
+          subtitle="5 of 12 sections"
+          image={require('./assets/background2.jpg')}
+          logo={require('./assets/logo-react.png')}
+        />
       </Container>
     );
   }

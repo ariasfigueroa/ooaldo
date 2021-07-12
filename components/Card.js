@@ -65,17 +65,17 @@ const Wrapper = styled.View`
   margin-left: 10px;
 `;
 
-const Card = porps => (
+const Card = props => (
   <Container>
     <Cover>
-      <Image source={require('../assets/background2.jpg')} />
-      <Title>styled component</Title>
+      <Image source={props.image} />
+      <Title>{props.title}</Title>
     </Cover>
     <Content>
-      <Logo source={require('../assets/logo-react.png')} />
+      <Logo source={props.logo} />
       <Wrapper>
-        <Caption>react native</Caption>
-        <Subtitle>5 de 12</Subtitle>
+        <Caption>{props.caption}</Caption>
+        <Subtitle>{props.subtitle}</Subtitle>
       </Wrapper>
     </Content>
   </Container>
