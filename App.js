@@ -1,22 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from './components/Card';
-
-const Container = styled.View`
-  background: #f0f3f5;
-  flex: 1;
-`;
+import {ScrollView, SafeAreaView, StyleSheet} from 'react-native';
+import {NotificationIcon} from './components/Icons';
+import Logo from './components/Logo';
 
 const TitleBar = styled.View`
   width: 100%;
-  margin-top: 50px;
-  padding-left: 20px;
+  margin-top: 10px;
+  padding-left: 80px;
 `;
 
 const Title = styled.Text`
   font-size: 16px;
   color: #b8bece;
   font-weight: 500;
+  text-transform: uppercase;
 `;
 
 const Name = styled.Text`
@@ -29,7 +28,7 @@ const Subtitle = styled.Text`
   font-size: 15px;
   font-weight: 600;
   color: #b8bece;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-left: 20px;
   text-transform: uppercase;
 `;
@@ -48,21 +47,63 @@ const Avatar = styled.Image`
 export default class App extends React.Component {
   render() {
     return (
-      <Container>
-        <TitleBar>
-          <Title>welcome</Title>
-          <Name>aldo</Name>
-          <Avatar source={require('./assets/avatar.jpg')} />
+      <SafeAreaView>
+        <ScrollView>
+          <TitleBar>
+            <Title>welcome</Title>
+            <Name>aldo</Name>
+            <NotificationIcon style={styles.iconStyle} />
+            <Avatar source={require('./assets/avatar.jpg')} />
+          </TitleBar>
+          <ScrollView
+            style={styles.scrollViewLogosStyle}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}>
+            <Logo
+              image={require('./assets/logo-framerx.png')}
+              text="Framer X"
+            />
+            <Logo image={require('./assets/logo-figma.png')} text="Figma" />
+          </ScrollView>
           <Subtitle>continue learning</Subtitle>
-        </TitleBar>
-        <Card
-          title="styled componentes"
-          caption="react native"
-          subtitle="5 of 12 sections"
-          image={require('./assets/background2.jpg')}
-          logo={require('./assets/logo-react.png')}
-        />
-      </Container>
+          <ScrollView
+            style={styles.scrollViewCardStyle}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}>
+            <Card
+              title="styled componentes"
+              caption="react native"
+              subtitle="5 of 12 sections"
+              image={require('./assets/background1.jpg')}
+              logo={require('./assets/logo-react.png')}
+            />
+            <Card
+              title="styled componentes"
+              caption="react native"
+              subtitle="5 of 12 sections"
+              image={require('./assets/background2.jpg')}
+              logo={require('./assets/logo-react.png')}
+            />
+          </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  iconStyle: {
+    position: 'absolute',
+    top: 5,
+    right: 20,
+  },
+  scrollViewLogosStyle: {
+    flexDirection: 'row',
+    padding: 20,
+    paddingLeft: 12,
+    paddingTop: 30,
+  },
+  scrollViewCardStyle: {
+    paddingBottom: 30,
+  },
+});
