@@ -59,31 +59,25 @@ export default class App extends React.Component {
             style={styles.scrollViewLogosStyle}
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
-            <Logo
-              image={require('./assets/logo-framerx.png')}
-              text="Framer X"
-            />
-            <Logo image={require('./assets/logo-figma.png')} text="Figma" />
+            {logos.map((logo, index) => (
+              <Logo key={index} image={logo.image} text={logo.text} />
+            ))}
           </ScrollView>
           <Subtitle>continue learning</Subtitle>
           <ScrollView
             style={styles.scrollViewCardStyle}
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
-            <Card
-              title="styled componentes"
-              caption="react native"
-              subtitle="5 of 12 sections"
-              image={require('./assets/background1.jpg')}
-              logo={require('./assets/logo-react.png')}
-            />
-            <Card
-              title="styled componentes"
-              caption="react native"
-              subtitle="5 of 12 sections"
-              image={require('./assets/background2.jpg')}
-              logo={require('./assets/logo-react.png')}
-            />
+            {cards.map((card, index) => (
+              <Card
+                key={index}
+                title={card.title}
+                caption={card.caption}
+                subtitle={card.subtitle}
+                image={card.image}
+                logo={card.logo}
+              />
+            ))}
           </ScrollView>
         </ScrollView>
       </SafeAreaView>
@@ -101,9 +95,64 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 20,
     paddingLeft: 12,
+    paddingRight: 12,
     paddingTop: 30,
   },
   scrollViewCardStyle: {
     paddingBottom: 30,
   },
 });
+
+const logos = [
+  {
+    image: require('./assets/logo-framerx.png'),
+    text: 'Famer X',
+  },
+  {
+    image: require('./assets/logo-figma.png'),
+    text: 'Figma',
+  },
+  {
+    image: require('./assets/logo-studio.png'),
+    text: 'Studio',
+  },
+  {
+    image: require('./assets/logo-react.png'),
+    text: 'React',
+  },
+  {
+    image: require('./assets/logo-sketch.png'),
+    text: 'Sketch',
+  },
+];
+
+const cards = [
+  {
+    title: 'React Native for Designers',
+    subtitle: 'React Native',
+    caption: '1 - 4 sections',
+    image: require('./assets/background11.jpg'),
+    logo: require('./assets/logo-react.png'),
+  },
+  {
+    title: 'Figma for Designers',
+    subtitle: 'Figma',
+    caption: '1 - 8 sections',
+    image: require('./assets/background12.jpg'),
+    logo: require('./assets/logo-figma.png'),
+  },
+  {
+    title: 'Studio for Designers',
+    subtitle: 'Invision Studio',
+    caption: '1 - 10 sections',
+    image: require('./assets/background13.jpg'),
+    logo: require('./assets/logo-studio.png'),
+  },
+  {
+    title: 'Sketch for Designers',
+    subtitle: 'Sketch',
+    caption: '1 - 12 sections',
+    image: require('./assets/background14.jpg'),
+    logo: require('./assets/logo-sketch.png'),
+  },
+];
