@@ -30,9 +30,4 @@ const Text = styled.Text`
   margin-left: 8px;
 `;
 
-const LogosWrapper = styled.View`
-  flex-direction: row;
-  padding: 20px 12px;
-`;
-
 export default Logo;
